@@ -14,19 +14,45 @@ export default class Main extends React.Component {
     {
       label: 'Predictions',
       fill: false,
-      lineTension: 0,
-      backgroundColor: 'rgba(75,192,192,1)',
-      borderColor: 'rgba(0,0,0,1)',
+      lineTension: 0.1,
+      backgroundColor: 'rgba(75,192,192,0.4)',
+      borderColor: 'rgba(75,192,192,1)',
       borderWidth: 2,
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: 'rgba(75,192,192,1)',
+      pointBackgroundColor: '#fff',
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+      pointHoverBorderColor: 'rgba(220,220,220,1)',
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 10,
       data: []
     },
     {
       label: 'Trues',
       fill: false,
-      lineTension: 0.5,
-      backgroundColor: 'rgba(75,192,192,1)',
-      borderColor: 'rgba(0,0,0,1)',
+      lineTension: 0.1,
+      backgroundColor: '#DB3A34',
+      borderColor: '#DB3A34',
       borderWidth: 2,
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: '#DB3A34',
+      pointBackgroundColor: '#fff',
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: '#DB3A34',
+      pointHoverBorderColor: '#DB3A34',
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 10,
       data: []
     }
   ]
@@ -61,6 +87,8 @@ export default class Main extends React.Component {
       var data = this.state.datasets
       data[0].data = val[1]
       data[1].data = val[2]
+      data[0].data.push(this.state.value)
+      val[0].push("2020-9-27")
       this.setState({labels: val[0], datasets: data})
       console.log( val[0])
     })
@@ -80,7 +108,7 @@ export default class Main extends React.Component {
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
+              text:'',
               fontSize:20
             },
             legend:{
@@ -91,7 +119,7 @@ export default class Main extends React.Component {
         />
     
                 <p>
-                    Tomorrow's S&P 500 is {this.state.value}
+                    Tomorrow's S&P 500 at close will be {this.state.value}
                 </p>
                 </header>
             </div>
