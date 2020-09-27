@@ -104,6 +104,7 @@ export default class Main extends React.Component {
         <div className="App">
                 <header className="App-header">
                 <Line
+                className="graph"
           data={this.state}
           options={{
             title:{
@@ -117,7 +118,6 @@ export default class Main extends React.Component {
             }
           }}
         />
-    
                 <p>
                     Tomorrow's S&P 500 at close will be {this.state.value}
                 </p>
